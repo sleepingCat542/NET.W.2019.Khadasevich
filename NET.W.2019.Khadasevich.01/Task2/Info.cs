@@ -6,7 +6,7 @@ class Program
     static void Main()
     {
         CatMaineCoon obj = new CatMaineCoon();
-        obj.InfoCatMaineCoon();
+        obj.CatMaineCoonInfo();
 
         Cat obj1 = new Cat();
         obj1.CatInfo();
