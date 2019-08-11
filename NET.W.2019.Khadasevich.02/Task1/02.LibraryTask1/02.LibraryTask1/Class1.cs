@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace MathTasks
 {
@@ -65,105 +64,7 @@ namespace MathTasks
             int numberOfBitsInByte = 8;
             if (j >= sizeof(int) * numberOfBitsInByte)
                 throw new ArgumentException(nameof(j), "Индекс не должен превышать 32.");
-        }
-
-
-        public static long FindNextBiggerNumber(int number)
-        {
-            if (number < 0)
-            {
-                throw new Exception($"Число {number} должно быть положительным");
-            }
-
-            bool isExist = false;
-            var numberArray = number.ToString().ToCharArray();
-
-            //Number consists of more than 1 digit
-            if (numberArray.Length > 1)
-            {
-                for (int i = numberArray.Length - 1; i > 0; i--)
-                {
-                    if (numberArray[i] > numberArray[i - 1])
-                    {
-                        isExist = true;
-                        int temp = numberArray[i];
-                        numberArray[i] = numberArray[i - 1];
-                        numberArray[i - 1] = numberArray[i];
-                        break;
-                    }
-                }
-            }
-
-            return isExist == false ? -1 : Convert.ToInt32(numberArray.ToString());
-        }
-
-
-            public static double CalculateTimeStopWatch(int num)
-            {
-                Stopwatch stopwatch = new Stopwatch();
-                stopwatch.Start();
-                FindNextBiggerNumber(num);
-                stopwatch.Stop();
-                return stopwatch.Elapsed.TotalMilliseconds;
-            }
-
-
-            public static double CalculateTimeDateTime(int number)
-            {
-                long ellapledTicks = DateTime.Now.Millisecond;
-                FindNextBiggerNumber(number);
-                ellapledTicks = DateTime.Now.Millisecond - ellapledTicks;
-                return ellapledTicks;               
-            }
-           
-
-
-        public static int[] FilterDigit(int[] array, int number)
-        {
-            string resultString=string.Empty;
-
-            foreach(int element in array)
-            {
-                if(element.ToString().Contains(number.ToString()))
-                {
-                    resultString += $"{number.ToString()},";
-                }
-            }
-
-            string[] resultArray = resultString.Split(',');
-            int[] resultIntArray=new int[resultArray.Length];
-
-            for(int i=0; i<resultArray.Length; i++)
-            {
-                resultIntArray[i]= int.Parse(resultArray[i]);
-            }
-            return resultIntArray;
-
-        }
-
-
-
-        static double Pow(double a, int pow)// function for power
-        {
-            double result = 1;
-            for (int i = 0; i < pow; i++) result *= a;
-            return result;
-        }
-
-        public static double FindNthRoot(double basis, int exponent, double accuracy)
-        {
-            double x = basis / exponent;     //upper root range
-
-            var approach = (1 / exponent) * ((exponent - 1) * x + basis / Pow(x, (int)exponent - 1));     //first approach
-
-            while (Math.Abs(approach - x) > accuracy)                 //until accuracy is achieved
-            {
-                x = approach;
-                approach = (1 / exponent) * ((exponent - 1) * x + basis / Pow(x, (int)exponent - 1));  //new approach
-            }
-
-            return approach;
-        }
+        }      
     }
 
 }
