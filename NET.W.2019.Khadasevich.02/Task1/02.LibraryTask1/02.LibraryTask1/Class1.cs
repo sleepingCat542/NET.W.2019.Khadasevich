@@ -2,17 +2,9 @@
 
 namespace MathTasks
 {
-    public class MathMetods
+    public class MathMetods1
     {
-        /// <summary>
-        /// Inserts some bits of number2 to bits from i to j number1
-        /// </summary>
-        /// <param name="number1">First number</param>
-        /// <param name="number2"></param>
-        /// <param name="i">Start position for inset</param>
-        /// <param name="j">End position for insert</param>
-        /// <returns>Resul number</returns>
-        /// <exception cref="ArgumentOutOfRangeException">Invalid input data</exception>
+
         public static long InsertNumber(int number1,int number2, int i, int j)
         {
             if (i > j)
@@ -48,11 +40,7 @@ namespace MathTasks
             return s == 0 ? r : (r >> s) & ~(-1 << (32 - s));
         }
 
-        /// <summary>
-        /// Checks if passed indexes are valid.
-        /// </summary>
-        /// <param name="i">Starting index.</param>
-        /// <param name="j">Ending index.</param>
+
         private static void CheckIndexes(int i, int j)
         {
             if (i < 0 || j < 0)

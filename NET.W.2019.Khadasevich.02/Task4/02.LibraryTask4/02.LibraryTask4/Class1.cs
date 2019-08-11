@@ -2,7 +2,7 @@
 
 namespace MathTasks
 {
-    public class MathMetods
+    public class MathMetods4
     {
         public static int[] FilterDigit(int[] array, int number)
         {
@@ -13,16 +13,16 @@ namespace MathTasks
             {
                 if (element.ToString().Contains(number.ToString()))
                 {
-                    resultString += $"{number.ToString()},";
+                    resultString += $"{element.ToString()},";
                 }
             }
 
             string[] resultArray = resultString.Split(',');
-            int[] resultIntArray = new int[resultArray.Length];
+            int[] resultIntArray = new int[resultArray.Length-1];
 
-            for (int i = 0; i < resultArray.Length; i++)
+            for (int i = 0; i < resultArray.Length-1; i++)
             {
-                resultIntArray[i] = int.Parse(resultArray[i]);
+                resultIntArray[i] = Convert.ToInt32(resultArray[i]);
             }
             return resultIntArray;
         }

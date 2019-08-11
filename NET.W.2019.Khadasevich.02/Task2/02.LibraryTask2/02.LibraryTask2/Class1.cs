@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace MathTasks
 {
-    public class MathMetods
+    public class MathMetods2
     {
         public static long FindNextBiggerNumber(int number)
         {
@@ -23,15 +23,16 @@ namespace MathTasks
                     if (numberArray[i] > numberArray[i - 1])
                     {
                         isExist = true;                             //The required number exists.
-                        int temp = numberArray[i];
+                        char temp = numberArray[i];
                         numberArray[i] = numberArray[i - 1];
-                        numberArray[i - 1] = numberArray[i];
+                        numberArray[i - 1] = temp;
                         break;
                     }
                 }
             }
-
-            return isExist == false ? -1 : Convert.ToInt32(numberArray.ToString());
+            long.TryParse(new string(numberArray), out var result);
+         
+            return isExist == false ? -1 : result;
         }
 
 
