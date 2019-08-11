@@ -42,13 +42,6 @@ namespace NET.W._2019.Khadasevich._02.Tests
             Assert.AreEqual(MathTasks.MathMetods2.FindNextBiggerNumber(20), -1);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void FindNextBiggerNumber_InvalidData_Test()
-        {
-            MathTasks.MathMetods2.FindNextBiggerNumber(-90);
-        }
-
 
         //Task4
 

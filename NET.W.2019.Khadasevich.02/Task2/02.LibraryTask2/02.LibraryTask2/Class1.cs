@@ -9,11 +9,13 @@ namespace MathTasks
         {
             if (number < 0)
             {
-                throw new Exception($"Число {number} должно быть положительным");
+                throw new ArgumentOutOfRangeException($"Число {number} должно быть положительным");
             }
 
             bool isExist = false;               
             var numberArray = number.ToString().ToCharArray();
+            int result=0;
+
 
             //Number consists of more than 1 digit
             if (numberArray.Length > 1)
@@ -23,15 +25,21 @@ namespace MathTasks
                     if (numberArray[i] > numberArray[i - 1])
                     {
                         isExist = true;                             //The required number exists.
-                        char temp = numberArray[i];
+
+                        char temp= numberArray[i];
                         numberArray[i] = numberArray[i - 1];
                         numberArray[i - 1] = temp;
                         break;
                     }
                 }
-            }
-            long.TryParse(new string(numberArray), out var result);
-         
+
+                result = Convert.ToInt32(numberArray[numberArray.Length - 1].ToString());
+                for (int j = numberArray.Length - 2, k=1; j >= 0; j--,  k++)
+                {
+                    result += Convert.ToInt32(numberArray[j].ToString()) * (int)(Math.Pow(10, k));
+                }
+
+            }        
             return isExist == false ? -1 : result;
         }
 
