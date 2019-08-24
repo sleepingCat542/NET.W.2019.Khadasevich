@@ -22,8 +22,8 @@ namespace sorting
                     j--;
                 }
             }
-            if (left < j) QuickSorting(arr, left, j);
-            if (i < right) QuickSorting(arr, i, right);
+            if (left < j) QuickSorting(arr, left, j);       //sort the left side
+            if (i < right) QuickSorting(arr, i, right);     //sort the right side
 
             return arr;
         }
