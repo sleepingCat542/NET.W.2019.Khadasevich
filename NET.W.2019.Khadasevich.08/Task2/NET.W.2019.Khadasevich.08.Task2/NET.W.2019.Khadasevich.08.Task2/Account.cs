@@ -20,24 +20,29 @@ namespace NET.W._2019.Khadasevich._08.Task2
     public class Account
     {
         private BonusCount bonus = new BonusCount();   
-        private CardType cardType =new CardType();      
+        private TypeCard cardType =new TypeCard();      
 
         public int Number { get; set; }
-        public string Name { get; private set; }
-        public string LastName { get; private set; }
-        public int Bonuses { get; private set; }
-        public decimal Amount{ get; private set; }
+        public string Name { get;  set; }
+        public string LastName { get;  set; }
+        public int Bonuses { get;  set; }
+        public decimal Amount{ get;  set; }
         public CardType CardType;
 
 
         /// <summary>
         /// Provides instance of bank account
         /// </summary>
-        /// <param name="bankUser">Account owner</param>
-        /// <param name="accountId">Account id</param>
+        /// <param name="number">Account number</param>
         /// <param name="CardType">Card Type</param>
         /// <param name="amount">Amount</param>
         /// <param name="bonus">Bonus</param>
+
+        public Account()
+        {
+
+        }
+
         public Account(int number, string name, string lastName)
         {
             Number = number;
@@ -59,12 +64,8 @@ namespace NET.W._2019.Khadasevich._08.Task2
         /// <summary>
         /// bonus reduction
         /// </summary>
-        /// <param name="bankUser">Account owner</param>
-        /// <param name="accountId">Account id</param>
-        /// <param name="CardType">Card Type</param>
-        /// <param name="amount">Amount</param>
-        /// <param name="bonus">Bonus</param>
-        private void WithdrawBonuses(decimal sum)
+        /// <param name="sum">money withdrawn from the account</param>
+        private void ExcludeBonuses(decimal sum)
         {
             Bonuses -= bonus.CalсulateBonus(this, sum, false);
             if (Bonuses < 0)
@@ -74,44 +75,51 @@ namespace NET.W._2019.Khadasevich._08.Task2
         /// <summary>
         /// bonus increase
         /// </summary>
-        /// <param name="bankUser">Account owner</param>
-        /// <param name="accountId">Account id</param>
-        /// <param name="CardType">Card Type</param>
-        /// <param name="amount">Amount</param>
-        /// <param name="bonus">Bonus</param>
+        /// <param name="sum">money deposited into the account</param>
         private void PutBonuses(decimal sum)
         {
             Bonuses += bonus.CalсulateBonus(this, sum, true);
         }
+
+        /// <summary>
+        /// withdrawing money from an account
+        /// </summary>
         public void Withdraw()
         {
-            Console.Write("Enter sum which you want to withdraw:");
+            Console.Write("Введите сумму, которую хотите снять:");
             decimal sum = Convert.ToDecimal(Console.ReadLine());
-            if (sum > SumOnAccount)
-                throw new Exception("Not enough money in the account!");
+            if (sum > Amount)
+                throw new Exception("Недостаточно средств на счете!");
             else
             {
-                SumOnAccount -= sum + (Bonuses / 10);
-                WithdrawBonuses(sum);
+                Amount = Amount-sum+(Bonuses/10); 
+                ExcludeBonuses(sum);
                 cardType.ChangeCardType(this);
-                Console.WriteLine("You withdrawed: " + sum);
+                Console.WriteLine("Вы сняли: " + sum);
             }
-
         }
+
+        /// <summary>
+        /// adding money to the account
+        /// </summary>
         public void Put()
         {
-            Console.Write("Enter sum which you want to put:");
+            Console.Write("Введите сумму, на которую хотите пополнить счёт:");
             decimal sum = Convert.ToDecimal(Console.ReadLine());
-            SumOnAccount += sum + (Bonuses / 10);
+            Amount += sum + (Bonuses / 10);
             PutBonuses(sum);
-            Console.WriteLine("You put: " + sum);
+            Console.WriteLine("Вы увеличили счёт на: " + sum);
             cardType.ChangeCardType(this);
         }
+
+
         public override string ToString()
         {
             string str = "\nNumber: " + Number + "\nName: " + Name + "\nLast Name: " + LastName + "\nBonus: " + Bonuses + "\nAmount: " + Amount + "\nCard: " + CardType;
             return str;
         }
+
+
         public void ShowAccount()
         {
             Console.WriteLine(this);
