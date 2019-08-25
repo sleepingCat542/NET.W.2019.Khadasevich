@@ -16,7 +16,7 @@ namespace NET.W._2019.Khadasevich.Task1
                 try
                 {
                     int number = 0;
-                    Console.Write("(1)Добавить книгу, (2) Удалить книгу, (3)Показать книги, (4)Найти книгу, (5)Отсортировать по критерию:    ");
+                    Console.Write(" (1)Добавить книгу,\n (2) Удалить книгу,\n (3)Показать книги,\n (4)Найти книгу,\n (5)Отсортировать по критерию:    ");
                     number = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine();
                     switch (number)
@@ -31,7 +31,7 @@ namespace NET.W._2019.Khadasevich.Task1
                             service.ShowList();
                             break;
                         case 4:
-                            Console.Write("(1)Поиск по ISBN, (2) Поиск по названию и автору," +
+                            Console.Write(" (1)Поиск по ISBN,\n (2) Поиск по названию и автору,\n" +
                             " (3)  Поиск по названию, автору и году публикации:   ");
                             number = Convert.ToInt32(Console.ReadLine());
                             if (number == 1)

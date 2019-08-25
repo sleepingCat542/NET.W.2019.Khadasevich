@@ -143,7 +143,7 @@ namespace NET.W._2019.Khadasevich.Task1
         {
             if (!(other is Book))
                 return false;
-            return this.Equals(other);
+            return this.Equals((object)other);
         }
         #endregion
 

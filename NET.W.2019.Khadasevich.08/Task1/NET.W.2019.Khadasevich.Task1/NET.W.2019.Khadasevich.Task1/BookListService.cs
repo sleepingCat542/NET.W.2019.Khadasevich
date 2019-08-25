@@ -249,10 +249,10 @@ namespace NET.W._2019.Khadasevich.Task1
         public void SortByTag()
         {
             IEnumerable<Book> sortedBook = new List<Book>();
-            Console.Write("Сортировать по: (1) ISBN, (2)Названию," +
-                " (3) Автору, (4)Издательству," +
-                " (5) Году публикации," +
-                " (6) Числу страниц, (7) Цене:  ");
+            Console.Write("Сортировать по: \n(1) ISBN, \n(2)Названию," +
+                " \n(3) Автору, \n(4)Издательству," +
+                " \n(5) Году публикации," +
+                " \n(6) Числу страниц, \n(7) Цене:  ");
             int tag = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
             switch (tag)
