@@ -11,6 +11,11 @@ namespace NET.W._2019.Khadasevich.Task1
         static void Main(string[] args)
         {
             BookListService service = new BookListService("storage.dat");
+
+            service.AddBook("Пушкин", "Руслан и Людмила", "Росмэн", 2006, 130, 12);
+            service.AddBook("Толстой", "Война и Мир", "Эксмо", 2010, 1200, 50);
+            service.AddBook("Достоевский", "Бесы", "Росмэн", 2001, 300, 16);
+
             while (true)
             {
                 try
@@ -31,8 +36,7 @@ namespace NET.W._2019.Khadasevich.Task1
                             service.ShowList();
                             break;
                         case 4:
-                            Console.Write(" (1)Поиск по ISBN,\n (2) Поиск по названию и автору,\n" +
-                            " (3)  Поиск по названию, автору и году публикации:   ");
+                            Console.Write(" (1)Поиск по ISBN,\n (2) Поиск по названию и автору,\n");
                             number = Convert.ToInt32(Console.ReadLine());
                             if (number == 1)
                             {
@@ -47,16 +51,6 @@ namespace NET.W._2019.Khadasevich.Task1
                                 Console.Write("Введите автора: ");
                                 string author = Console.ReadLine();
                                 service.FindBookByTag(name, author);
-                            }
-                            if (number == 3)
-                            {
-                                Console.Write("Введите название: ");
-                                string name = Console.ReadLine();
-                                Console.Write("Введите автора: ");
-                                string author = Console.ReadLine();
-                                Console.Write("Введите год публикации: ");
-                                int year = Convert.ToInt32(Console.ReadLine());
-                                service.FindBookByTag(name, author, year);
                             }
                             break;
                         case 5:

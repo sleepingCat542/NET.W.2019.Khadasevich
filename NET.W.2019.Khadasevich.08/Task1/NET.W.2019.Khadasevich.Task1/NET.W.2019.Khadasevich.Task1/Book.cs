@@ -39,7 +39,7 @@ namespace NET.W._2019.Khadasevich.Task1
             {
                 if (value == 0)
                 {
-                    throw new ArgumentException($"количество страниц должно быть больше 0!");
+                    throw new ArgumentException($"Количество страниц должно быть больше 0!");
                 }
 
                 pageCount = value;
@@ -91,12 +91,9 @@ namespace NET.W._2019.Khadasevich.Task1
 
         public override string ToString()
         {
-            string str = "ISBN: " + this.ISBN +
-                 "\nAuthor: " + this.Author +
-                 "\nName: " + this.Name +
-                 "\nPublishing house: " + this.PublishingHouse +
-                 "\nYear publish: " + this.YearPublish +
-                 "\nNumber of pages: " + this.PageCount +
+            string str = "ISBN: " + this.ISBN +"\nAuthor: " + this.Author +
+                 "\nName: " + this.Name +"\nPublishing house: " + this.PublishingHouse +
+                 "\nYear publish: " + this.YearPublish +"\nPage Count: " + this.PageCount +
                  "\nPrice: " + this.Price + '\n';
             return str;
         }
