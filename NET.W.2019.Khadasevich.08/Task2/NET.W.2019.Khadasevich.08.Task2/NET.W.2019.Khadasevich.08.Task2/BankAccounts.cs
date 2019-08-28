@@ -20,10 +20,10 @@ namespace NET.W._2019.Khadasevich._08.Task2
         public BankAccounts(string path)
         {
             pathToFile = path;
-            FileInfo f = new FileInfo(pathToFile);
-            using (BinaryWriter bw = new BinaryWriter(f.Open(FileMode.OpenOrCreate,
+            FileInfo file = new FileInfo(pathToFile);
+            using (BinaryWriter writer = new BinaryWriter(file.Open(FileMode.OpenOrCreate,
                 FileAccess.ReadWrite, FileShare.None))) { }
-            accounts = GetAccounts();
+            accounts = GetList();
         }
 
         /// <summary>
@@ -33,27 +33,30 @@ namespace NET.W._2019.Khadasevich._08.Task2
         {
             Account acc;
             Console.WriteLine("Создание: ");
-                FillNameAndLastName(out string name, out string lastName);
+            Console.Write("Введите имя: ");
+            string name = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            string lastName = Console.ReadLine();
                 if (CheckOwnerAccount(name, lastName))
                     throw new Exception("У вас уже есть счёт!");
                 Console.Write("Введите ваш начальный капитал: ");
                 decimal sum = Convert.ToDecimal(Console.ReadLine());
                 FileInfo f = new FileInfo(pathToFile);
-                int number = 1;
+                int number = 0;
                 if (accounts.Count != 0)
-                    number = accounts.LastOrDefault().Number + 1;
+                    number = accounts.LastOrDefault().Number + 3;
                 acc = new Account(number, name, lastName);
                 acc.Amount = sum;
-                using (BinaryWriter bw = new BinaryWriter(f.Open(FileMode.Append,
+                using (BinaryWriter writer = new BinaryWriter(f.Open(FileMode.Append,
                             FileAccess.Write, FileShare.None)))
                 {
 
-                    bw.Write(acc.Number);
-                    bw.Write(acc.Name);
-                    bw.Write(acc.LastName);
-                    bw.Write(acc.Bonuses);
-                    bw.Write(acc.Amount);
-                    bw.Write((int)acc.CardType);
+                    writer.Write(acc.Number);
+                    writer.Write(acc.Name);
+                    writer.Write(acc.LastName);
+                    writer.Write(acc.Bonuses);
+                    writer.Write(acc.Amount);
+                    writer.Write((int)acc.CardType);
                 }
                 accounts.Add(acc);
                 return acc;            
@@ -110,7 +113,7 @@ namespace NET.W._2019.Khadasevich._08.Task2
         /// <summary>
         /// take accounts from file in acc
         /// </summary>
-        private List<Account> GetAccounts()
+        private List<Account> GetList()
         {
             List<Account> acc = new List<Account>();
             FileInfo f = new FileInfo(pathToFile);
@@ -163,19 +166,19 @@ namespace NET.W._2019.Khadasevich._08.Task2
         private void ReWrittingAllFile()
         {
             FileInfo f = new FileInfo(pathToFile);
-            using (BinaryWriter bw = new BinaryWriter(f.Open(FileMode.Truncate,
+            using (BinaryWriter writer = new BinaryWriter(f.Open(FileMode.Truncate,
                    FileAccess.Write, FileShare.None)))
             {
 
                 foreach (var acc in accounts)
                 {
 
-                    bw.Write(acc.Number);
-                    bw.Write(acc.Name);
-                    bw.Write(acc.LastName);
-                    bw.Write(acc.Bonuses);
-                    bw.Write(acc.Amount);
-                    bw.Write((int)acc.CardType);
+                    writer.Write(acc.Number);
+                    writer.Write(acc.Name);
+                    writer.Write(acc.LastName);
+                    writer.Write(acc.Bonuses);
+                    writer.Write(acc.Amount);
+                    writer.Write((int)acc.CardType);
                 }
             }
         }
