@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.04.01", "NET.W.2019.Khadasevich.04.01\NET.W.2019.Khadasevich.04.01.csproj", "{58F9D1C0-E0F0-4CEB-A338-7C3C543867FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.04.01.Test", "NET.W.2019.Khadasevich.04.01.Test\NET.W.2019.Khadasevich.04.01.Test.csproj", "{3A303F22-A5CD-45A7-9F21-EB6DAF4399F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58F9D1C0-E0F0-4CEB-A338-7C3C543867FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F9D1C0-E0F0-4CEB-A338-7C3C543867FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F9D1C0-E0F0-4CEB-A338-7C3C543867FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F9D1C0-E0F0-4CEB-A338-7C3C543867FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A303F22-A5CD-45A7-9F21-EB6DAF4399F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A303F22-A5CD-45A7-9F21-EB6DAF4399F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A303F22-A5CD-45A7-9F21-EB6DAF4399F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A303F22-A5CD-45A7-9F21-EB6DAF4399F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {838F2012-F916-43D8-BCEC-FACCC573F3EB}
+	EndGlobalSection
+EndGlobal
