@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,16 +87,43 @@ namespace NET.W._2019.Khadasevich.Task1
             this.Price = price;
         }
 
+        private static string DefaultFormat { get => "DEF"; }
 
         #region ToString
 
         public override string ToString()
         {
-            string str = "ISBN: " + this.ISBN +"\nAuthor: " + this.Author +
-                 "\nName: " + this.Name +"\nPublishing house: " + this.PublishingHouse +
-                 "\nYear publish: " + this.YearPublish +"\nPage Count: " + this.PageCount +
+            return ToString(DefaultFormat, null);
+        }
+
+        public string ToString(string format)
+            => ToString(format, CultureInfo.CurrentCulture);
+
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            if (string.IsNullOrEmpty(format))
+                format = DefaultFormat;
+
+            if (formatProvider == null)
+                formatProvider = CultureInfo.CurrentCulture;
+
+            switch (format.ToUpperInvariant())
+            {
+                case "DEF":
+                    string str = "ISBN: " + this.ISBN + "\nAuthor: " + this.Author +
+                 "\nName: " + this.Name + "\nPublishing house: " + this.PublishingHouse +
+                 "\nYear publish: " + this.YearPublish + "\nPage Count: " + this.PageCount +
                  "\nPrice: " + this.Price + '\n';
-            return str;
+                    return str;
+                case "SH":
+                    return $"{ISBN} - {Author} - {Name}";
+                case "COST":
+                    return $"{ISBN} - {Name} - {Price}";
+                case "PUB":
+                    return $"{Author} - {Name} - {PublishingHouse} - {YearPublish}";
+                default:
+                    throw new FormatException($"Incorrect string format {format}");
+            }
         }
 
         #endregion

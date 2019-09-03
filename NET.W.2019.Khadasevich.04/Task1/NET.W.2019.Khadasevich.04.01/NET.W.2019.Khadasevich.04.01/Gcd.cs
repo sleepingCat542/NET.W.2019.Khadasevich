@@ -4,18 +4,18 @@ using NUnit.Framework;
 namespace Gcd
 {
 	public static class Gcd
-	{
-		/// <summary>
-		/// Returns the GCD of passed numbers calculated by Euclidean algorithm and execution time.
-		/// </summary>
-		/// <param name="numbers">Numbers for GCD.</param>
-		/// <exception cref="ArgumentException">
-		/// Throw when less than 2 numbers passed.
-		/// </exception>
-		/// <returns>Returns the GCD of passed numbers and execution time.</returns>
-		public static (int result, TimeSpan executionTime) GetGcd(params int[] numbers)
+    {
+        /// <summary>
+        /// Returns the GCD of passed numbers calculated by Euclidean algorithm and execution time.
+        /// </summary>
+        /// <param name="numbers">Numbers for GCD.</param>
+        /// <exception cref="ArgumentException">
+        /// Throw when less than 2 numbers passed.
+        /// </exception>
+        /// <returns>Returns the GCD of passed numbers and execution time.</returns>
+        public static (int result, TimeSpan executionTime) GetGcd(params int[] numbers)
 		{
-			return GetNumbersGcd(GetGcdOfTwoNumbers, numbers);
+			return GetGcd(GetGcdOfTwoNumbers, numbers);
 		}
 
 		/// <summary>
@@ -28,7 +28,7 @@ namespace Gcd
 		/// <returns>Returns the GCD of passed numbers and execution time.</returns>
 		public static (int result, TimeSpan executionTime) GetGcdBinary(params int[] numbers)
 		{
-			return GetNumbersGcd(GetGcdOfTwoNumbersBinary, numbers);
+			return GetGcd(GetGcdOfTwoNumbersBinary, numbers);
 		}
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace Gcd
 		/// Throw when less than 2 numbers passed.
 		/// </exception>
 		/// <returns>Returns the GCD of passed numbers and execution time.</returns>
-		private static (int result, TimeSpan executionTime) GetNumbersGcd(Func<int, int, int> func, params int[] numbers)
+		private static (int result, TimeSpan executionTime) GetGcd(Func<int, int, int> func, params int[] numbers)
 		{
 			var timer = System.Diagnostics.Stopwatch.StartNew();
 

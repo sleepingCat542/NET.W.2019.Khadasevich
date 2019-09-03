@@ -16,17 +16,17 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByAscendingRowElementsSums : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstSum = first.Sum(),
-					secondSum = second.Sum();
+				int num1Sum = num1.Sum(),
+					num2Sum = num2.Sum();
 
-				if (firstSum == secondSum)
+				if (num1Sum == num2Sum)
 					return 0;
 
-				return firstSum > secondSum ? 1 : -1;
+				return num1Sum > num2Sum ? 1 : -1;
 			}
 		}
 
@@ -35,17 +35,17 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByDescendingRowElementsSums : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstSum = first.Sum(),
-					secondSum = second.Sum();
+				int num1Sum = num1.Sum(),
+					num2Sum = num2.Sum();
 
-				if (firstSum == secondSum)
+				if (num1Sum == num2Sum)
 					return 0;
 
-				return firstSum > secondSum ? -1 : 1;
+				return num1Sum > num2Sum ? -1 : 1;
 			}
 		}
 
@@ -54,17 +54,17 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByAscendingMaxElements : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstMax = first.Max(),
-					secondMax = second.Max();
+				int num1Max = num1.Max(),
+					num2Max = num2.Max();
 
-				if (firstMax == secondMax)
+				if (num1Max == num2Max)
 					return 0;
 
-				return firstMax > secondMax ? 1 : -1;
+				return num1Max > num2Max ? 1 : -1;
 			}
 		}
 
@@ -73,17 +73,17 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByDescendingMaxElements : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstMax = first.Max(),
-					secondMax = second.Max();
+				int num1Max = num1.Max(),
+					num2Max = num2.Max();
 
-				if (firstMax == secondMax)
+				if (num1Max == num2Max)
 					return 0;
 
-				return firstMax > secondMax ? -1 : 1;
+				return num1Max > num2Max ? -1 : 1;
 			}
 		}
 
@@ -92,17 +92,17 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByAscendingMinElements : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstMin = first.Min(),
-					secondMin = second.Min();
+				int num1Min = num1.Min(),
+					num2Min = num2.Min();
 
-				if (firstMin == secondMin)
+				if (num1Min == num2Min)
 					return 0;
 
-				return firstMin > secondMin ? 1 : -1;
+				return num1Min > num2Min ? 1 : -1;
 			}
 		}
 
@@ -111,30 +111,30 @@ namespace Sort.NUnitTests
 		/// </summary>
 		public class ByDescendingMinElements : IComparer<int[]>
 		{
-			public int Compare(int[] first, int[] second)
+			public int Compare(int[] num1, int[] num2)
 			{
-				CheckParameters(first, second);
+				CheckParameters(num1, num2);
 
-				int firstMin = first.Min(),
-					secondMin = second.Min();
+				int num1Min = num1.Min(),
+					num2Min = num2.Min();
 
-				if (firstMin == secondMin)
+				if (num1Min == num2Min)
 					return 0;
 
-				return firstMin > secondMin ? -1 : 1;
+				return num1Min > num2Min ? -1 : 1;
 			}
 		}
 
 		/// <summary>
 		/// Chacks if passed arrays are not null.
 		/// </summary>
-		/// <param name="first">The first array.</param>
-		/// <param name="second">The second array.</param>
+		/// <param name="num1">The num1 array.</param>
+		/// <param name="num2">The num2 array.</param>
 		/// <exception cref="ArgumentNullException">Throws when array is null.</exception>
-		private static void CheckParameters(int[] first, int[] second)
+		private static void CheckParameters(int[] num1, int[] num2)
 		{
-			if (first == null || second == null)
-				throw new ArgumentNullException(first == null ? nameof(first) : nameof(second), "Value can not be undefined.");
+			if (num1 == null || num2 == null)
+				throw new ArgumentNullException(num1 == null ? nameof(num1) : nameof(num2), "Value can not be undefined.");
 		}
 
 	}

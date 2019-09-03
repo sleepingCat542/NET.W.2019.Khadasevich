@@ -12,9 +12,11 @@ namespace NET.W._2019.Khadasevich.Task1
         {
             BookListService service = new BookListService("storage.dat");
 
-            service.AddBook("Пушкин", "Руслан и Людмила", "Росмэн", 2006, 130, 12);
-            service.AddBook("Толстой", "Война и Мир", "Эксмо", 2010, 1200, 50);
-            service.AddBook("Достоевский", "Бесы", "Росмэн", 2001, 300, 16);
+            //service.AddBook("Пушкин", "Руслан и Людмила", "Росмэн", 2006, 130, 12);
+            //service.AddBook("Толстой", "Война и Мир", "Эксмо", 2010, 1200, 50);
+            //service.AddBook("Достоевский", "Бесы", "Росмэн", 2001, 300, 16);
+
+           
 
             while (true)
             {

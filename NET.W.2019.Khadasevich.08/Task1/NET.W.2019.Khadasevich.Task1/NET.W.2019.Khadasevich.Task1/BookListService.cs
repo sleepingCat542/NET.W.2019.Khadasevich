@@ -224,9 +224,10 @@ namespace NET.W._2019.Khadasevich.Task1
         /// </summary>
         public void ShowList()
         {
+            BookFormat f=new BookFormat();
             foreach (var b in books)
             {
-                Console.WriteLine(b);
+                Console.WriteLine(f.Format("SH", b, null));
             }
             if (books.Count == 0)
                 Console.WriteLine("Список пуст !");
@@ -248,46 +249,25 @@ namespace NET.W._2019.Khadasevich.Task1
             {
                 case 1:
                     sortedBook=books.OrderBy(x => x.ISBN).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.ISBN
-                    //             select b;
                     break;
 
                 case 2:
                     books = books.OrderBy(x => x.Name).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.Name
-                    //             select b;
                     break;
                 case 3:
                     books = books.OrderBy(x => x.Author).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.Author
-                    //             select b;
                     break;
                 case 4:
                     books = books.OrderBy(x => x.PublishingHouse).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.PublishingHouse
-                    //             select b;
                     break;
                 case 5:
                     books = books.OrderBy(x => x.YearPublish).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.YearPublish
-                    //             select b;
                     break;
                 case 6:
                     books = books.OrderBy(x => x.PageCount).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.PageCount
-                    //             select b;
                     break;
                 case 7:
                     books = books.OrderBy(x => x.Price).ToList();
-                    //sortedBook = from b in books
-                    //             orderby b.Price
-                    //             select b;
                     break;
 
             }

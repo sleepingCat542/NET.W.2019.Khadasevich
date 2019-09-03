@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.Task1", "NET.W.2019.Khadasevich.Task1\NET.W.2019.Khadasevich.Task1.csproj", "{DA8B3672-496C-48F6-BD5F-89EFEFCAF2BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.04.BookFormatTest", "BookFormat\BookFormatTest\NET.W.2019.Khadasevich.04.BookFormatTest\NET.W.2019.Khadasevich.04.BookFormatTest.csproj", "{27018188-0C80-4EA6-BDF1-C200611696B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DA8B3672-496C-48F6-BD5F-89EFEFCAF2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA8B3672-496C-48F6-BD5F-89EFEFCAF2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA8B3672-496C-48F6-BD5F-89EFEFCAF2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27018188-0C80-4EA6-BDF1-C200611696B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27018188-0C80-4EA6-BDF1-C200611696B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27018188-0C80-4EA6-BDF1-C200611696B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27018188-0C80-4EA6-BDF1-C200611696B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
