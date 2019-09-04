@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace NET.W._2019.Khadasevich.Task1
 {
+    /// <summary>
+    /// Provides work with book list
+    /// </summary>
     class BookListService
     {
-        /// <summary>
-        /// Provides work with book list
-        /// </summary>
+        Logger logger = LogManager.GetCurrentClassLogger();
 
         string pathToFile;
         List<Book> books;
@@ -35,6 +37,9 @@ namespace NET.W._2019.Khadasevich.Task1
         /// </summary>
         public void AddBook()
         {
+            logger.Info("Add book");
+            logger.Debug("Add book information");
+
             Console.Write("Автор: ");
             string author = Console.ReadLine();
             Console.Write("Название: ");
@@ -47,8 +52,15 @@ namespace NET.W._2019.Khadasevich.Task1
             int pages = Convert.ToInt32(Console.ReadLine());
             Console.Write("Цена: ");
             decimal price = Convert.ToDecimal(Console.ReadLine());
+
+
+            logger.Debug("Сheck the existence of the book");
+
             if (CheckBook(author, name, pubHouse, year))
                 throw new Exception("Данная книга существует");
+
+
+            logger.Debug("Write a book in the file");
 
             FileInfo file = new FileInfo(pathToFile);
             int isbn = 0;
@@ -65,8 +77,14 @@ namespace NET.W._2019.Khadasevich.Task1
                 writer.Write(pages);
                 writer.Write(price);
             }
+
+
+            logger.Debug("Write a book in list");
+
             Book book = new Book(isbn, author, name, pubHouse, year, pages, price);
             books.Add(book);
+
+            logger.Info("Book added successfully");
             Console.WriteLine("Книга добавлена");
         }
 
@@ -81,8 +99,14 @@ namespace NET.W._2019.Khadasevich.Task1
         /// <param name="price">Tags Price</param>
         public void AddBook(string author, string name, string pubHouse,int year, int pages, decimal price)
         {
+            logger.Info("Add book");
+            logger.Debug("Сheck the existence of the book");
+
             if (CheckBook(author, name, pubHouse, year))
                 throw new Exception("Данная книга существует");
+
+
+            logger.Debug("Write a book in the file");
 
             FileInfo file = new FileInfo(pathToFile);
             int isbn = 0;
@@ -99,8 +123,13 @@ namespace NET.W._2019.Khadasevich.Task1
                 writer.Write(pages);
                 writer.Write(price);
             }
+
+            logger.Debug("Write a book in list");
+
             Book book = new Book(isbn, author, name, pubHouse, year, pages, price);
             books.Add(book);
+
+            logger.Info("Book added successfully");
             Console.WriteLine("Книга добавлена");
         }
 
@@ -111,6 +140,9 @@ namespace NET.W._2019.Khadasevich.Task1
         /// </summary>
         public void RemoveBook()
         {
+            logger.Info("Remove book");
+            logger.Debug("Add book information");
+
             Console.Write("Автор: ");
             string author = Console.ReadLine();
             Console.Write("Название: ");
@@ -123,8 +155,11 @@ namespace NET.W._2019.Khadasevich.Task1
             int pages = Convert.ToInt32(Console.ReadLine());
             Console.Write("Цена: ");
             decimal price = Convert.ToDecimal(Console.ReadLine());
+
+            logger.Debug("Сheck the existence of the book");
             if (CheckBook(author, name, pubHouse, year))
             {
+                logger.Debug("Remove book from list");
                 foreach (var book in books)
                 {
                     if (author == book.Author && name == book.Name &&
@@ -136,6 +171,8 @@ namespace NET.W._2019.Khadasevich.Task1
                         break;
                     }
                 }
+
+                logger.Debug("Overwrite file");
                 FileInfo file = new FileInfo(pathToFile);
                 using (BinaryWriter writer = new BinaryWriter(file.Open(FileMode.Truncate,
                        FileAccess.Write, FileShare.None)))
@@ -154,6 +191,7 @@ namespace NET.W._2019.Khadasevich.Task1
             }
             else
             {
+                logger.Error($"Book with this name ({name}) is not found.");
                 throw new Exception("Такая книга не найдена");
             }
         }
@@ -173,10 +211,11 @@ namespace NET.W._2019.Khadasevich.Task1
                 if (author == book.Author && name == book.Name &&
                    house == book.PublishingHouse && year == book.YearPublish)
                 {
+                    logger.Info("Book exists");
                     return true;
                 }
             }
-
+            logger.Info("Book doesn't exist");
             return false;
         }
 
@@ -192,9 +231,11 @@ namespace NET.W._2019.Khadasevich.Task1
                 if (book.ISBN == isbn)
                 {
                     Console.WriteLine(book);
+                    logger.Info("Book found");
                     return book;
                 }
             }
+            logger.Error("Book doesn't find");
             throw new Exception("Книга не найдена");
         }
 
@@ -212,10 +253,11 @@ namespace NET.W._2019.Khadasevich.Task1
                 if (book.Name == name && book.Author == author)
                 {
                     Console.WriteLine(book);
+                    logger.Info("Book found");
                     return book;
                 }
             }
-
+            logger.Error("Book doesn't find");
             throw new Exception("Книга не найдена");
         }
    
@@ -230,7 +272,10 @@ namespace NET.W._2019.Khadasevich.Task1
                 Console.WriteLine(f.Format("SH", b, null));
             }
             if (books.Count == 0)
+            {
+                logger.Error("List is empty");
                 Console.WriteLine("Список пуст !");
+            }
         }
 
         /// <summary>
@@ -238,12 +283,14 @@ namespace NET.W._2019.Khadasevich.Task1
         /// </summary>
         public void SortByTag()
         {
+            logger.Info("Sort menu");
             IEnumerable<Book> sortedBook = new List<Book>();
             Console.Write("Сортировать по: \n(1) ISBN, \n(2)Названию," +
                 " \n(3) Автору, \n(4)Издательству," +
                 " \n(5) Году публикации," +
                 " \n(6) Числу страниц, \n(7) Цене:  ");
             int tag = Convert.ToInt32(Console.ReadLine());
+            logger.Debug($"Chose {tag} item");
             Console.WriteLine();
             switch (tag)
             {
@@ -272,6 +319,7 @@ namespace NET.W._2019.Khadasevich.Task1
 
             }
 
+            logger.Info(" Books sorted");
             Console.WriteLine("Книги отсортированы !");
         }
 
@@ -281,6 +329,7 @@ namespace NET.W._2019.Khadasevich.Task1
         /// <returns>Books</returns>
         public List<Book> GetList()
         {
+            logger.Info("Get list");
             List<Book> Books = new List<Book>();
             FileInfo file = new FileInfo(pathToFile);
             using (BinaryReader reader = new BinaryReader(file.OpenRead()))

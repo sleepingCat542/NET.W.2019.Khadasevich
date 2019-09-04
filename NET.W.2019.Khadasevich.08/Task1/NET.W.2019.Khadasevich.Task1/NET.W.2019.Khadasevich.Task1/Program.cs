@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,21 +11,24 @@ namespace NET.W._2019.Khadasevich.Task1
     {
         static void Main(string[] args)
         {
+            //create Logger
+            Logger logger = LogManager.GetCurrentClassLogger();                     
+
             BookListService service = new BookListService("storage.dat");
+
+            //for first data
 
             //service.AddBook("Пушкин", "Руслан и Людмила", "Росмэн", 2006, 130, 12);
             //service.AddBook("Толстой", "Война и Мир", "Эксмо", 2010, 1200, 50);
             //service.AddBook("Достоевский", "Бесы", "Росмэн", 2001, 300, 16);
-
-           
-
-            while (true)
-            {
+          
                 try
                 {
+                    logger.Info("Opening menu");
                     int number = 0;
                     Console.Write(" (1)Добавить книгу,\n (2) Удалить книгу,\n (3)Показать книги,\n (4)Найти книгу,\n (5)Отсортировать по критерию:    ");
                     number = Convert.ToInt32(Console.ReadLine());
+                    logger.Debug($"Chose {number} item");
                     Console.WriteLine();
                     switch (number)
                     {
@@ -63,10 +67,12 @@ namespace NET.W._2019.Khadasevich.Task1
                 }
                 catch (Exception e)
                 {
+                    logger.Info("Exception:");
+                    logger.Error(e.StackTrace);
                     Console.WriteLine(e.Message);
                 }
             }
 
-        }
+        
     }
 }
