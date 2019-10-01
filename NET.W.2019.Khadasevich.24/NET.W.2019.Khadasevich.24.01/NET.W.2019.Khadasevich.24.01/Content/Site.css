@@ -1,0 +1,50 @@
+﻿
+body {
+    background: linear-gradient(to top left, blue, coral );
+    font-size: 14px;
+    color: aqua;
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h1, h2, h3, span {
+    font-style: italic;
+    color: aqua;
+}
+
+p {
+    color: aqua;
+}
+
+.records p {
+    color: rgb(12, 245, 82);
+}
+
+.records a:Link {
+    color: rgb(12, 245, 82);
+}
+
+.records a:Visited {
+    color: aqua;
+}
+
+.cl {
+    text-align: center;
+    letter-spacing: -1px;
+    word-spacing: 2px;
+    font-size: 2em;
+    font-style: italic;
+    color: rgb(158, 36, 229);
+}
+
+table {
+    vertical-align: middle;
+    text-align: left;
+}
+
+td {
+    padding-right: 10px;
+}
+
+input {
+    width: 150px;
+}
