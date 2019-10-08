@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.13-14.01lib", "NET.W.2019.Khadasevich.13-14.01lib\NET.W.2019.Khadasevich.13-14.01lib.csproj", "{3065506D-CAC6-4462-88A4-8F73CDC70F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.W.2019.Khadasevich.13-14.01test", "NET.W.2019.Khadasevich.13-14.01test\NET.W.2019.Khadasevich.13-14.01test.csproj", "{F6766480-EA00-4F21-8A1E-E135022B7359}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3065506D-CAC6-4462-88A4-8F73CDC70F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3065506D-CAC6-4462-88A4-8F73CDC70F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3065506D-CAC6-4462-88A4-8F73CDC70F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3065506D-CAC6-4462-88A4-8F73CDC70F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6766480-EA00-4F21-8A1E-E135022B7359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6766480-EA00-4F21-8A1E-E135022B7359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6766480-EA00-4F21-8A1E-E135022B7359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6766480-EA00-4F21-8A1E-E135022B7359}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A88F186-7B13-40AD-9F11-BEEE5EE44F61}
+	EndGlobalSection
+EndGlobal
